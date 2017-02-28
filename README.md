@@ -16,6 +16,11 @@ It requires jQuery library.
 ```
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 ```
+Load Google Maps API.
+
+```
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY"></script>
+```
 
 Cofiguration sample
 ```
@@ -24,7 +29,7 @@ CKEDITOR.replace('editor', {
 	//	language: 'ja',
 	extraPlugins: 'googlemaps',
 	googlemapsPlugin: {
-		apiKey: "YOUR GOOGLE MAPS API KEY"
+		apiKey: "YOUR_GOOGLE_MAPS_API_KEY"
 	},
 	toolbar: [
 		["Source"],                                  
