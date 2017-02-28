@@ -14,7 +14,7 @@
  */
 
 (function(){
-	CKEDITOR.dialog.add('googlemaps', function(editor){
+	CKEDITOR.dialog.add('m3googlemaps', function(editor){
 		var dialog;
 		var mode;
 		var mapDiv;
@@ -42,7 +42,7 @@
 		if (typeof(google) === "undefined") $.getScript("https://maps.googleapis.com/maps/api/js?key=" + apiKey);
 		
 		// スクリプト読み込み
-		var pluginUrl = CKEDITOR.getUrl(CKEDITOR.plugins.getPath( 'googlemaps' ));
+		var pluginUrl = CKEDITOR.getUrl(CKEDITOR.plugins.getPath( 'm3googlemaps' ));
 			
 		var loadSelectionData = function()
 		{
@@ -500,7 +500,7 @@
 				newMapElement.setAttributes({
 					'id': 'gmap' + mapInfo.number,
 					'style': style,
-					'class': 'googlemaps'
+					'class': 'm3googlemaps'
 				});
 
 				// ビュー更新前、画像のみ変更

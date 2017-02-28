@@ -344,7 +344,7 @@ Polyline.prototype.hideLinePoints = function()
 
 Polyline.prototype.createColorMarker = function(point, color)
 {
-	var pluginUrl = CKEDITOR.getUrl(CKEDITOR.plugins.getPath( 'googlemaps' ));
+	var pluginUrl = CKEDITOR.getUrl(CKEDITOR.plugins.getPath( 'm3googlemaps' ));
 	var markerImage = new google.maps.MarkerImage(	pluginUrl + 'images/mm_20_' + color + '.png',
 											new google.maps.Size(12, 20),	// size
 											new google.maps.Point(0,0),		// origin

@@ -12,7 +12,7 @@
  * @version    1.0
  * @link       http://www.magic3.org
  */
-CKEDITOR.plugins.setLang( 'googlemaps', 'ja', {
+CKEDITOR.plugins.setLang( 'm3googlemaps', 'ja', {
 	toolbar: 'Googleマップ',
 	title: 'Googleマップ',
 	mapTitle: 'マップ',

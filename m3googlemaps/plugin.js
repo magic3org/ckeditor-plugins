@@ -20,24 +20,24 @@
 //	CKEDITOR.config.googlemaps_centerLon = 139.620739;		// マップ経度
 //	CKEDITOR.config.googlemaps_zoom = 11;					// ズームレベル
 
-	var path = CKEDITOR.plugins.getPath('googlemaps');
+	var path = CKEDITOR.plugins.getPath('m3googlemaps');
 	CKEDITOR.scriptLoader.load(CKEDITOR.getUrl(path) + 'dialogs/googlemaps.js');
 	CKEDITOR.scriptLoader.load(CKEDITOR.getUrl(path) + 'dialogs/polyline.js');
 
-	CKEDITOR.plugins.add( 'googlemaps', {
+	CKEDITOR.plugins.add( 'm3googlemaps', {
 		lang: 'ja,en',
-		icons: 'googlemaps',
+		icons: 'm3googlemaps',
 
 		init: function(editor){
 			// ダイアログ登録
-			editor.addCommand('googlemaps', new CKEDITOR.dialogCommand('googlemaps'));
-			CKEDITOR.dialog.add('googlemaps', this.path + 'dialogs/main.js');
+			editor.addCommand('m3googlemaps', new CKEDITOR.dialogCommand('m3googlemaps'));
+			CKEDITOR.dialog.add('m3googlemaps', this.path + 'dialogs/main.js');
 
 			// ツールバーボタン登録
 			if (editor.ui.addButton){
-				editor.ui.addButton('Googlemaps', {
+				editor.ui.addButton('M3Googlemaps', {
 					label: editor.lang.googlemaps.toolbar,
-					command: 'googlemaps',
+					command: 'm3googlemaps',
 					toolbar: 'others'
 				});
 			}
@@ -46,7 +46,7 @@
 			editor.on( 'doubleclick', function( evt ) {
 				var element = evt.data.element;
 				var className = element.$.className;
-				if (element.is('img') && element.data('cke-real-element-type') == 'div' && className.lastIndexOf('cke_googlemaps', 0) == 0) evt.data.dialog = 'googlemaps';
+				if (element.is('img') && element.data('cke-real-element-type') == 'div' && className.lastIndexOf('cke_googlemaps', 0) == 0) evt.data.dialog = 'm3googlemaps';
 			});
 		},
 		// 初期起動時、ソースモード切替時に呼び出し
@@ -72,7 +72,7 @@
 							// Googleマップの埋め込みタグの場合は固定マップ画像を設定
 							var objectId = element.attributes.id;
 							var className = element.attributes['class'];
-							if (className == 'googlemaps'){
+							if (className == 'm3googlemaps'){
 								// マップ情報取得
 								var mapNumber;
 								var regExp = /gmap(\d+)/;
@@ -136,7 +136,7 @@
 									CKEDITOR.addCss(
 										'img.cke_googlemaps' + mapNumber +
 										'{' +
-											'background-image: url(' + CKEDITOR.getUrl(CKEDITOR.plugins.getPath('googlemaps')) + 'images/maps_res_logo.png' + ');' +
+											'background-image: url(' + CKEDITOR.getUrl(CKEDITOR.plugins.getPath('m3googlemaps')) + 'images/maps_res_logo.png' + ');' +
 											'background-position: center center;' +
 											'background-repeat: no-repeat;' +
 											'border: 1px solid #a9a9a9;' +

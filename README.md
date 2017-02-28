@@ -27,7 +27,7 @@ Cofiguration sample
 CKEDITOR.replace('editor', {
 	language: 'en',
 	//	language: 'ja',
-	extraPlugins: 'googlemaps',
+	extraPlugins: 'm3googlemaps',
 	googlemapsPlugin: {
 		apiKey: "YOUR_GOOGLE_MAPS_API_KEY"
 	},
@@ -35,7 +35,7 @@ CKEDITOR.replace('editor', {
 		["Source"],                                  
 		["Link", "Image", "Table", "HorizontalRule"],
 		["Bold", "Underline", "Strike"],             
-		["Googlemaps"],                                 // Google Maps plugin
+		["M3Googlemaps"],                                 // Google Maps plugin
 	],
 });
 ```
