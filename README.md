@@ -9,7 +9,7 @@ Copy the plugin directory into CKEditor plugin directory.
 
 Add configuration if the plugin needs.
 
-* Google Maps plugin
+## Google Maps plugin
 
 It requires jQuery library.
 
