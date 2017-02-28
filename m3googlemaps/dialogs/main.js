@@ -33,7 +33,7 @@
 		
 		// GoogleMapsAPIキーが設定されているかチェック
 		if (typeof(editor.config.googlemapsPlugin) === "undefined" || typeof(editor.config.googlemapsPlugin.apiKey) === "undefined"){
-			alert(editor.lang.googlemaps.msgApiKeyNotConfigured);
+			alert(editor.lang.m3googlemaps.msgApiKeyNotConfigured);
 		} else {
 			apiKey = editor.config.googlemapsPlugin.apiKey;
 		}
@@ -148,7 +148,7 @@
 					case 'tab_search':
 						break;
 					case 'tab_marker':
-						if (mode == 'AddMarker') addMarkerAtPoint(point, editor.lang.googlemaps.markerDefaultText || '', true);
+						if (mode == 'AddMarker') addMarkerAtPoint(point, editor.lang.m3googlemaps.markerDefaultText || '', true);
 						break;
 					case 'tab_line':
 						polyline.createPoint(point.lat(), point.lng(), 3);
@@ -266,7 +266,7 @@
 
 					updateMap();
 				} else {
-					alert(editor.lang.googlemaps.msgNotFound.replace("%s", address));
+					alert(editor.lang.m3googlemaps.msgNotFound.replace("%s", address));
 				}
 			}
 
@@ -274,7 +274,7 @@
 				if (status == google.maps.GeocoderStatus.OK){
 					processPoint(results[0].geometry.location);
 				} else {
-					alert(editor.lang.googlemaps.msgNotFound.replace("%s", address));
+					alert(editor.lang.m3googlemaps.msgNotFound.replace("%s", address));
 				}
 			});
 		};
@@ -285,7 +285,7 @@
 				return;
 			}
 			$('#btnAddNewMarker' + editor.id).attr('src', pluginUrl + 'images/AddMarkerDown.png');
-			$('#msgMarkerInstruction' + editor.id).text(editor.lang.googlemaps.msgMarkerInstruction2);
+			$('#msgMarkerInstruction' + editor.id).text(editor.lang.m3googlemaps.msgMarkerInstruction2);
 			mode = 'AddMarker';
 			mapObj.setOptions({ draggableCursor:'crosshair' });
 		}
@@ -311,7 +311,7 @@
 			mode = '';
 			
 			$('#btnAddNewMarker' + editor.id).attr('src', pluginUrl + 'images/AddMarker.png');
-			$('#msgMarkerInstruction' + editor.id).text(editor.lang.googlemaps.msgMarkerInstruction1);
+			$('#msgMarkerInstruction' + editor.id).text(editor.lang.m3googlemaps.msgMarkerInstruction1);
 			mapObj.setOptions({ draggableCursor:'default' });
 		};
 		var editMarker = function(marker)
@@ -369,9 +369,9 @@
 		};
 		var generateEditPopupString = function(text)
 		{
-			return '<div><label for="txtMarkerText' + editor.id + '">' + editor.lang.googlemaps.markerText + '</label></div>' +
+			return '<div><label for="txtMarkerText' + editor.id + '">' + editor.lang.m3googlemaps.markerText + '</label></div>' +
 				'<div><textarea id="txtMarkerText' + editor.id + '" class="cke_dialog_ui_input_textarea" style="width:300px; height:120px;">' + text.replace(/<br>/g, '\n') + '</textarea></div>' +
-				'<div class="cke_dialog_footer_buttons"><div style="width:50%;display:inline-block;float:left;"><div class="cke_dialog_ui_hbox_child" style="display:inline-block;"><a id="btnDeleteMarker" class="cke_dialog_ui_button"><span class="cke_dialog_ui_button">' + editor.lang.googlemaps.deleteMarker + '</span></a></div></div>' +
+				'<div class="cke_dialog_footer_buttons"><div style="width:50%;display:inline-block;float:left;"><div class="cke_dialog_ui_hbox_child" style="display:inline-block;"><a id="btnDeleteMarker" class="cke_dialog_ui_button"><span class="cke_dialog_ui_button">' + editor.lang.m3googlemaps.deleteMarker + '</span></a></div></div>' +
 				'<div style="width:40%;display:inline-block;float:right;"><div class="cke_dialog_ui_hbox_first" style="display:inline-block;"><a id="btnOk" class="cke_dialog_ui_button cke_dialog_ui_button_ok"><span class="cke_dialog_ui_button">' + editor.lang.common.ok + '</span></a></div><div class="cke_dialog_ui_hbox_last" style="display:inline-block;">' +
 				'<a id="btnCancel" class="cke_dialog_ui_button cke_dialog_ui_button_cancel"><span class="cke_dialog_ui_button">' + editor.lang.common.cancel + '</span></a></div></div></div>';
 		};
@@ -389,7 +389,7 @@
 			return true;
 		};
 		return {
-			title: editor.lang.googlemaps.title,
+			title: editor.lang.m3googlemaps.title,
 			minWidth: 420,
 			minHeight: 310,
 			onLoad: function(){		// 初期処理
@@ -432,7 +432,7 @@
 				// イベント登録
 				$('#btnAddNewMarker' + editor.id).click(function(){
 					addMarker();
-				}).attr({ title:editor.lang.googlemaps.addMarker, alt:editor.lang.googlemaps.addMarker });
+				}).attr({ title:editor.lang.m3googlemaps.addMarker, alt:editor.lang.m3googlemaps.addMarker });
 			},
 			onFocus: function() {		// 特定フィールドからフォーカスをはずす
 				mapDiv.focus();
@@ -526,7 +526,7 @@
 			},
 			contents: [{
 				id: 'tab_map',
-				label: editor.lang.googlemaps.mapTitle,
+				label: editor.lang.m3googlemaps.mapTitle,
 				elements :[
 				{
 					// 項目を横に配置
@@ -537,7 +537,7 @@
 					{
 						type : 'text',
 						id : 'txtWidth',
-						label: editor.lang.googlemaps.width,
+						label: editor.lang.m3googlemaps.width,
 						width: '40px',
 						'default': 400,
 						validate : function() {
@@ -557,7 +557,7 @@
 					}, {
 						type: 'select',
 						id: 'cmbWidthType',
-						label: editor.lang.googlemaps.widthType,
+						label: editor.lang.m3googlemaps.widthType,
 						style: 'width:50px',
 						'default': 'px',
 						items: [
@@ -568,7 +568,7 @@
 					}, {
 						type : 'text',
 						id : 'txtHeight',
-						label: editor.lang.googlemaps.height,
+						label: editor.lang.m3googlemaps.height,
 						width: '40px',
 						'default': 240,
 						validate : function() {
@@ -588,7 +588,7 @@
 					}, {
 						type: 'select',
 						id: 'cmbHeightType',
-						label: editor.lang.googlemaps.heightType,
+						label: editor.lang.m3googlemaps.heightType,
 						style: 'width:50px',
 						'default': 'px',
 						items: [
@@ -599,7 +599,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkAlignCenter',
-						label: editor.lang.googlemaps.alignCenter,
+						label: editor.lang.m3googlemaps.alignCenter,
 						style: 'margin-top:20px;',
 						'default': false,
 						commit: commitValue
@@ -612,7 +612,7 @@
 						type: 'text',
 						id: 'txtCenterLat',
 					//	requiredContent: 'img(cke-xyz)', // Random text like 'xyz' will check if all are allowed.
-						label: editor.lang.googlemaps.latitude,
+						label: editor.lang.m3googlemaps.latitude,
 						'default': '',
 						onLoad: function(){
 							fieldCenterLatitude = document.getElementById(this.getInputElement().$.id);			// 参照を取得
@@ -625,7 +625,7 @@
 						type: 'text',
 						id: 'txtCenterLon',
 						//requiredContent: 'img[title]',
-						label: editor.lang.googlemaps.longitude,
+						label: editor.lang.m3googlemaps.longitude,
 						'default': '',
 						onLoad: function(){
 							fieldCenterLongitude = document.getElementById(this.getInputElement().$.id);		// 参照を取得
@@ -637,7 +637,7 @@
 					}, {
 						type: 'select',
 						id: 'cmbZoom',
-						label: editor.lang.googlemaps.zoomLevel,
+						label: editor.lang.m3googlemaps.zoomLevel,
 						style: 'width:50px',
 						'default': '',
 						items: [
@@ -674,11 +674,11 @@
 				} ]		// elements
 			}, {
 				id: 'tab_option',
-				label: editor.lang.googlemaps.optionTitle,
+				label: editor.lang.m3googlemaps.optionTitle,
 				elements: [
 				{
 					type: 'html',
-					html: editor.lang.googlemaps.control
+					html: editor.lang.m3googlemaps.control
 				}, {
 					type: 'hbox',
 					widths: [ '25%', '25%', '25%', '25%' ],
@@ -686,7 +686,7 @@
 					{
 						type: 'checkbox',
 						id: 'chkZoomControl',
-						label: editor.lang.googlemaps.zoomControl,
+						label: editor.lang.m3googlemaps.zoomControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -695,7 +695,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkPanControl',
-						label: editor.lang.googlemaps.panControl,
+						label: editor.lang.m3googlemaps.panControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -704,7 +704,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkMapTypeControl',
-						label: editor.lang.googlemaps.mapTypeControl,
+						label: editor.lang.m3googlemaps.mapTypeControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -713,7 +713,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkScaleControl',
-						label: editor.lang.googlemaps.scaleControl,
+						label: editor.lang.m3googlemaps.scaleControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -727,7 +727,7 @@
 					{
 						type: 'checkbox',
 						id: 'chkStreetViewControl',
-						label: editor.lang.googlemaps.streetViewControl,
+						label: editor.lang.m3googlemaps.streetViewControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -736,7 +736,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkRotateControl',
-						label: editor.lang.googlemaps.rotateControl,
+						label: editor.lang.m3googlemaps.rotateControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -745,7 +745,7 @@
 					}, {
 						type: 'checkbox',
 						id: 'chkOverviewMapControl',
-						label: editor.lang.googlemaps.overviewMapControl,
+						label: editor.lang.m3googlemaps.overviewMapControl,
 						'default': false,
 						onChange: function(){
 							changeMap(this.id);
@@ -754,7 +754,7 @@
 					} ]
 				}, {
 					type: 'html',
-					html: editor.lang.googlemaps.mapType
+					html: editor.lang.m3googlemaps.mapType
 				}, {
 					type: 'hbox',
 					widths: [ '25%', '25%', '25%', '25%' ],
@@ -762,28 +762,28 @@
 					{
 						type: 'checkbox',
 						id: 'chkRoadmapMapType',
-						label: editor.lang.googlemaps.roadmapMapType,
+						label: editor.lang.m3googlemaps.roadmapMapType,
 						'default': false,
 						onChange: selectMap,
 						commit: commitValue
 					}, {
 						type: 'checkbox',
 						id: 'chkSatelliteMapType',
-						label: editor.lang.googlemaps.satelliteMapType,
+						label: editor.lang.m3googlemaps.satelliteMapType,
 						'default': false,
 						onChange: selectMap,
 						commit: commitValue
 					}, {
 						type: 'checkbox',
 						id: 'chkHybridMapType',
-						label: editor.lang.googlemaps.hybridMapType,
+						label: editor.lang.m3googlemaps.hybridMapType,
 						'default': false,
 						onChange: selectMap,
 						commit: commitValue
 					}, {
 						type: 'checkbox',
 						id: 'chkTerrainMapType',
-						label: editor.lang.googlemaps.terrainMapType,
+						label: editor.lang.m3googlemaps.terrainMapType,
 						'default': false,
 						onChange: selectMap,
 						commit: commitValue
@@ -794,7 +794,7 @@
 				} ]
 			}, {
 				id: 'tab_search',
-				label: editor.lang.googlemaps.searchTitle,
+				label: editor.lang.m3googlemaps.searchTitle,
 				elements: [
 				{
 					type: 'hbox',
@@ -803,7 +803,7 @@
 					{
 						type: 'text',
 						id: 'txtAddress',
-						label: editor.lang.googlemaps.searchLabel,
+						label: editor.lang.m3googlemaps.searchLabel,
 						width: '300px',
 						labelLayout: 'horizontal'
 						/*onLoad: function(){
@@ -814,7 +814,7 @@
 						id: 'btnSearch',
 						align: 'left',
 						//style: 'width:50px',
-						label: editor.lang.googlemaps.search,
+						label: editor.lang.m3googlemaps.search,
 						onClick: function(){
 							doSearch();
 						}
@@ -825,11 +825,11 @@
 				} ]
 			}, {
 				id: 'tab_marker',
-				label: editor.lang.googlemaps.markerTitle,
+				label: editor.lang.m3googlemaps.markerTitle,
 				elements: [
 				{
 					type: 'html',
-html: '<img id="btnAddNewMarker' + editor.id + '" src="' + pluginUrl + 'images/AddMarker.png" style="cursor:pointer;" /><div id="msgMarkerInstruction' + editor.id + '" style="display:inline-block;">' + editor.lang.googlemaps.msgMarkerInstruction1 + '</div>'
+html: '<img id="btnAddNewMarker' + editor.id + '" src="' + pluginUrl + 'images/AddMarker.png" style="cursor:pointer;" /><div id="msgMarkerInstruction' + editor.id + '" style="display:inline-block;">' + editor.lang.m3googlemaps.msgMarkerInstruction1 + '</div>'
 				}, {
 					type: 'html',
 					html: '<div id="placeholder_marker' + editor.id + '"></div>'
@@ -840,11 +840,11 @@ html: '<img id="btnAddNewMarker' + editor.id + '" src="' + pluginUrl + 'images/A
 				} ]
 			}, {
 				id: 'tab_line',
-				label: editor.lang.googlemaps.lineTitle,
+				label: editor.lang.m3googlemaps.lineTitle,
 				elements: [
 				{
 					type: 'html',
-					html: '<p>' + editor.lang.googlemaps.msgLineInstruction + '</p>'
+					html: '<p>' + editor.lang.m3googlemaps.msgLineInstruction + '</p>'
 				}, {
 					type: 'html',
 					html: '<div id="placeholder_line' + editor.id + '"></div>'
@@ -855,11 +855,11 @@ html: '<img id="btnAddNewMarker' + editor.id + '" src="' + pluginUrl + 'images/A
 				} ]
 			}, {
 				id: 'tab_style',
-				label: editor.lang.googlemaps.styleTitle,
+				label: editor.lang.m3googlemaps.styleTitle,
 				elements: [
 				{
 					type: 'html',
-					html: '<p>' + editor.lang.googlemaps.msgInputStyleJsonData + '</p>'
+					html: '<p>' + editor.lang.m3googlemaps.msgInputStyleJsonData + '</p>'
 				}, {
 					type: 'textarea',
 					id: 'txtStyle',
@@ -875,7 +875,7 @@ html: '<img id="btnAddNewMarker' + editor.id + '" src="' + pluginUrl + 'images/A
 						value = this.getValue().trim();
 						pass = pass && (value == '' || isJson(value));
 						if ( !pass ){
-							alert( editor.lang.googlemaps.msgInvalidStyle );
+							alert( editor.lang.m3googlemaps.msgInvalidStyle );
 							this.select();
 						}
 						return pass;

@@ -36,7 +36,7 @@
 			// ツールバーボタン登録
 			if (editor.ui.addButton){
 				editor.ui.addButton('M3Googlemaps', {
-					label: editor.lang.googlemaps.toolbar,
+					label: editor.lang.m3googlemaps.toolbar,
 					command: 'm3googlemaps',
 					toolbar: 'others'
 				});
@@ -82,7 +82,7 @@
 									// GoogleマップAPIキーを取得
 									var apiKey = '';
 									if (typeof(editor.config.googlemapsPlugin) === "undefined" || typeof(editor.config.googlemapsPlugin.apiKey) === "undefined"){
-										alert(editor.lang.googlemaps.msgApiKeyNotConfigured);
+										alert(editor.lang.m3googlemaps.msgApiKeyNotConfigured);
 									} else {
 										apiKey = editor.config.googlemapsPlugin.apiKey;
 									}
