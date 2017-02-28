@@ -4,17 +4,34 @@ CKEditor 4用のプラグインです。
 Plugins for CKEditor 4.
 
 # インストール(Install)
-
 CKEditorプラグインディレクトリにディレクトリごとコピー。
 Copy the plugin directory into CKEditor plugin directory.
 
 Add configuration if the plugin needs.
 
 * Google Maps plugin
+It requires jQuery library.
+
 ```
-config.googlemapsPlugin = {
-    apiKey: 'YOUR_API_KEY'
-};
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+```
+
+Cofiguration sample
+```
+CKEDITOR.replace('editor', {
+	language: 'en',
+	//	language: 'ja',
+	extraPlugins: 'googlemaps',
+	googlemapsPlugin: {
+		apiKey: "YOUR GOOGLE MAPS API KEY"
+	},
+	toolbar: [
+		["Source"],                                  
+		["Link", "Image", "Table", "HorizontalRule"],
+		["Bold", "Underline", "Strike"],             
+		["Googlemaps"],                                 // Google Maps plugin
+	],
+});
 ```
 
 # 使い方(How to use)
